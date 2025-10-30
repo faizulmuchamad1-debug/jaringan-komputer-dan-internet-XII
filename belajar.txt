@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Jaringan Komputer dan Internet</title>
+    <!-- Memuat Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Menggunakan font Inter sebagai standar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Latar belakang abu-abu terang */
+        }
+        /* Style untuk transisi halaman yang lebih mulus */
+        .page {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .page.hidden {
+            display: none;
+            opacity: 0;
+        }
+        .page:not(.hidden) {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // Konfigurasi Tailwind untuk tema biru
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1D4ED8', /* Tailwind blue-700 */
+                        'secondary-blue': '#3B82F6', /* Tailwind blue-500 */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header dan Navigasi -->
+    <header class="bg-primary-blue shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white tracking-wider">NetEdu</h1>
+            <nav class="flex space-x-4">
+                <button onclick="showPage('home')" class="nav-link text-white hover:text-blue-200 transition duration-300 font-medium pb-1 border-b-2 border-transparent hover:border-white">Beranda</button>
+                <button onclick="showPage('material')" class="nav-link text-white hover:text-blue-200 transition duration-300 font-medium pb-1 border-b-2 border-transparent hover:border-white">Materi</button>
+                <button onclick="showPage('quiz')" class="nav-link text-white hover:text-blue-200 transition duration-300 font-medium pb-1 border-b-2 border-transparent hover:border-white">Kuis Interaktif</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="flex-grow pt-20 pb-10 container mx-auto px-4">
+
+        <!-- Halaman Beranda -->
+        <section id="homePage" class="page">
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl border border-blue-100">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-primary-blue mb-4">Belajar Jaringan Komputer dan Internet</h2>
+                <p class="text-lg text-gray-700 leading-relaxed border-l-4 border-secondary-blue pl-4 py-2 bg-blue-50/50 rounded-lg">
+                    Selamat datang di portal edukasi terpadu Anda! Tujuan pembelajaran ini adalah untuk memahami konsep dasar jaringan komputer, mulai dari definisi, jenis-jenis topologi, fungsi perangkat keras, hingga cara kerja fundamental Internet yang kita gunakan sehari-hari. Mari kita jelajahi dunia konektivitas digital.
+                </p>
+                <div class="mt-8 text-center">
+                    <button onclick="showPage('material')" class="bg-secondary-blue hover:bg-primary-blue text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        Mulai Belajar Sekarang
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Materi -->
+        <section id="materialPage" class="page hidden">
+            <h2 class="text-3xl font-bold text-primary-blue mb-6">Materi Pembelajaran</h2>
+            <div class="space-y-8">
+                
+                <!-- Pengertian Jaringan Komputer -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary-blue">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">1. Pengertian Jaringan Komputer</h3>
+                    <p class="text-gray-600">Jaringan komputer adalah dua atau lebih perangkat komputasi yang terhubung satu sama lain dengan tujuan berbagi data dan sumber daya. Koneksi dapat dilakukan melalui kabel (wired) atau tanpa kabel (wireless).</p>
+                    <p class="text-sm italic mt-2 text-gray-500">
+                      
+                    </p>
+                </div>
+
+                <!-- Jenis-jenis Jaringan -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary-blue">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">2. Jenis-jenis Jaringan</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li><span class="font-medium text-primary-blue">LAN (Local Area Network):</span> Jaringan yang mencakup area geografis kecil, seperti rumah, kantor, atau gedung sekolah.</li>
+                        <li><span class="font-medium text-primary-blue">MAN (Metropolitan Area Network):</span> Jaringan yang lebih besar dari LAN, biasanya mencakup area kota.</li>
+                        <li><span class="font-medium text-primary-blue">WAN (Wide Area Network):</span> Jaringan yang mencakup area geografis yang sangat luas, seringkali melintasi negara atau benua. Internet adalah contoh terbesar dari WAN.</li>
+                    </ul>
+                    <p class="text-sm italic mt-2 text-gray-500">
+                      
+                    </p>
+                </div>
+
+                <!-- Perangkat Jaringan -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary-blue">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">3. Perangkat Jaringan Kunci</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li><span class="font-medium text-primary-blue">Router:</span> Menghubungkan berbagai jaringan dan menentukan jalur terbaik untuk pengiriman data (routing).</li>
+                        <li><span class="font-medium text-primary-blue">Switch:</span> Menghubungkan perangkat dalam satu LAN dan mengirimkan data secara cerdas ke alamat tujuan yang spesifik (MAC Address).</li>
+                        <li><span class="font-medium text-primary-blue">Hub:</span> Menghubungkan perangkat, tetapi menyebarkan data ke semua port (kurang efisien dibanding Switch).</li>
+                        <li><span class="font-medium text-primary-blue">Modem (Modulator-Demodulator):</span> Mengubah sinyal digital dari komputer menjadi sinyal analog untuk transmisi melalui jalur telepon/kabel, dan sebaliknya.</li>
+                        <li><span class="font-medium text-primary-blue">Access Point:</span> Perangkat yang memungkinkan perangkat nirkabel untuk terhubung ke jaringan kabel.</li>
+                    </ul>
+                </div>
+
+                <!-- Pengertian Internet dan Cara Kerjanya -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary-blue">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">4. Pengertian Internet dan Cara Kerjanya</h3>
+                    <p class="text-gray-600">Internet (Interconnected Network) adalah sistem jaringan komputer global yang menggunakan Internet Protocol Suite (TCP/IP) untuk komunikasi data antar jaringan dan perangkat.</p>
+                    <p class="text-gray-600 mt-2">Cara kerjanya melibatkan pengiriman data dalam paket-paket kecil yang dirutekan melalui ribuan router ke server tujuan, di mana server kemudian mengirimkan kembali data yang diminta (misalnya, halaman web) kepada pengguna.</p>
+                </div>
+
+                <!-- Manfaat dan Dampak -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary-blue">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">5. Manfaat dan Dampak Penggunaan Internet</h3>
+                    <p class="font-medium text-gray-700">Manfaat Utama:</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Akses Informasi Global (Edukasi, Berita).</li>
+                        <li>Komunikasi Instan (Email, Media Sosial, Video Call).</li>
+                        <li>E-commerce dan Transaksi Keuangan (Belanja, Banking).</li>
+                    </ul>
+                    <p class="font-medium text-gray-700 mt-4">Dampak Negatif:</p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Ancaman Keamanan Siber (Malware, Phishing).</li>
+                        <li>Ketergantungan dan Masalah Kesehatan Mental.</li>
+                        <li>Penyebaran Informasi Palsu (Hoaks).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman Kuis Interaktif -->
+        <section id="quizPage" class="page hidden">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-3xl font-bold text-primary-blue mb-6 text-center">Uji Pemahaman Anda! (Kuis Interaktif)</h2>
+                
+                <form id="quizForm" class="bg-white p-6 rounded-xl shadow-2xl space-y-6">
+                    <!-- Pertanyaan akan di-inject di sini oleh JavaScript -->
+                </form>
+
+                <div id="quizResult" class="mt-8 hidden p-6 rounded-xl border-4 border-primary-blue bg-blue-50/50">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Hasil Kuis</h3>
+                    <p id="scoreDisplay" class="text-xl font-semibold text-secondary-blue"></p>
+                    <p id="feedbackMessage" class="mt-2 text-gray-700"></p>
+                    <button onclick="resetQuiz()" class="mt-4 bg-secondary-blue hover:bg-primary-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300">Ulangi Kuis</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kotak Modal Pesan (Pengganti alert()) -->
+        <div id="messageModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+                <p id="modalText" class="text-lg font-semibold text-gray-800 mb-4"></p>
+                <button onclick="closeModal()" class="bg-primary-blue text-white py-2 px-4 rounded-lg hover:bg-secondary-blue transition duration-300">Tutup</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-auto py-4">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-400">
+            <p>© 2025 Belajar Jaringan Komputer dan Internet. Dibuat dengan semangat berbagi ilmu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Logika Aplikasi -->
+    <script type="text/javascript">
+        // Data Kuis
+        const quizQuestions = [
+            {
+                question: "Perangkat keras jaringan yang berfungsi menghubungkan berbagai jaringan (LAN/WAN) dan menentukan jalur terbaik untuk pengiriman paket data adalah...",
+                options: ["Hub", "Switch", "Router", "Access Point"],
+                answer: "Router"
+            },
+            {
+                question: "Jenis jaringan yang mencakup area geografis yang luas, bahkan bisa antar benua, adalah...",
+                options: ["LAN", "MAN", "WAN", "PAN"],
+                answer: "WAN"
+            },
+            {
+                question: "Apa kepanjangan dari 'Modem'?",
+                options: ["Modular Element", "Modulator-Demodulator", "Mode Definition", "Monitor Device"],
+                answer: "Modulator-Demodulator"
+            },
+            {
+                question: "Protokol standar yang digunakan oleh Internet untuk komunikasi data adalah...",
+                options: ["HTTP/FTP", "TCP/IP", "SMTP/POP3", "ICMP/ARP"],
+                answer: "TCP/IP"
+            },
+            {
+                question: "Jaringan yang hanya mencakup area kecil seperti di dalam satu rumah atau gedung kantor disebut...",
+                options: ["WAN", "MAN", "LAN", "Internet"],
+                answer: "LAN"
+            }
+        ];
+
+        // --- Logika Navigasi ---
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                // Sembunyikan semua halaman
+                page.classList.add('hidden');
+                page.classList.remove('flex');
+            });
+
+            // Tampilkan halaman yang diminta
+            const activePage = document.getElementById(pageId + 'Page');
+            if (activePage) {
+                activePage.classList.remove('hidden');
+                activePage.classList.add('flex', 'flex-col'); // Gunakan flex untuk tata letak konten
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Gulir ke atas
+            }
+        }
+        
+        // --- Logika Kuis ---
+        const quizForm = document.getElementById('quizForm');
+        const quizResult = document.getElementById('quizResult');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const feedbackMessage = document.getElementById('feedbackMessage');
+
+        function renderQuiz() {
+            quizForm.innerHTML = '';
+            quizQuestions.forEach((q, qIndex) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'p-4 border border-blue-200 rounded-lg shadow-md bg-white';
+                qDiv.innerHTML = `
+                    <p class="text-lg font-semibold text-gray-800 mb-3">Pertanyaan ${qIndex + 1}: ${q.question}</p>
+                    <div class="space-y-2">
+                        ${q.options.map((option, oIndex) => `
+                            <label class="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-blue-50 transition duration-150">
+                                <input type="radio" name="question${qIndex}" value="${option}" class="text-primary-blue focus:ring-primary-blue">
+                                <span class="text-gray-700">${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <p id="feedback${qIndex}" class="mt-2 font-medium text-sm"></p>
+                `;
+                quizForm.appendChild(qDiv);
+            });
+
+            // Tambahkan tombol submit
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.className = 'w-full bg-primary-blue hover:bg-secondary-blue text-white font-bold py-3 px-4 rounded-full transition duration-300 transform hover:scale-[1.01] mt-6';
+            submitButton.textContent = 'Kirim Jawaban';
+            quizForm.appendChild(submitButton);
+
+            // Tambahkan event listener untuk submit form
+            quizForm.addEventListener('submit', submitQuiz);
+        }
+
+        function submitQuiz(event) {
+            event.preventDefault();
+            let score = 0;
+            let allAnswered = true;
+
+            quizQuestions.forEach((q, qIndex) => {
+                const radios = document.getElementsByName(`question${qIndex}`);
+                let selectedAnswer = null;
+                const feedbackElement = document.getElementById(`feedback${qIndex}`);
+                feedbackElement.textContent = ''; // Reset feedback
+
+                // Temukan jawaban yang dipilih
+                radios.forEach(radio => {
+                    radio.disabled = true; // Nonaktifkan pilihan setelah submit
+                    if (radio.checked) {
+                        selectedAnswer = radio.value;
+                    }
+                });
+
+                if (selectedAnswer === null) {
+                    allAnswered = false;
+                    feedbackElement.textContent = 'Anda belum menjawab pertanyaan ini.';
+                    feedbackElement.classList.add('text-yellow-600');
+                    return;
+                }
+                
+                // Cek jawaban
+                if (selectedAnswer === q.answer) {
+                    score++;
+                    feedbackElement.textContent = 'Jawaban Benar! 🎉';
+                    feedbackElement.className = 'mt-2 font-medium text-sm text-green-600';
+                } else {
+                    feedbackElement.textContent = `Jawaban Salah. Jawaban yang benar adalah: ${q.answer}`;
+                    feedbackElement.className = 'mt-2 font-medium text-sm text-red-600';
+                }
+            });
+
+            if (!allAnswered) {
+                // Tampilkan pesan modal jika ada yang belum terjawab
+                showModal('Mohon jawab semua 5 pertanyaan sebelum mengirimkan.');
+                return;
+            }
+
+            // Hitung dan tampilkan hasil akhir
+            quizForm.querySelector('button[type="submit"]').disabled = true;
+            quizForm.querySelector('button[type="submit"]').classList.add('opacity-50', 'cursor-not-allowed');
+            
+            scoreDisplay.textContent = `Skor Anda: ${score} dari ${quizQuestions.length}`;
+            
+            let message = '';
+            if (score === quizQuestions.length) {
+                message = 'Luar biasa! Anda menguasai semua materi. Pertahankan! 💯';
+            } else if (score >= 3) {
+                message = 'Bagus! Anda memiliki pemahaman yang baik, coba tinjau kembali materi yang salah.';
+            } else {
+                message = 'Jangan berkecil hati! Mari kita pelajari materi kembali dan coba lagi.';
+            }
+            feedbackMessage.textContent = message;
+            
+            quizResult.classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            // Sembunyikan hasil
+            quizResult.classList.add('hidden');
+            // Render ulang kuis
+            renderQuiz();
+        }
+
+        // --- Logika Modal (Pengganti alert) ---
+        const messageModal = document.getElementById('messageModal');
+        const modalText = document.getElementById('modalText');
+
+        function showModal(text) {
+            modalText.textContent = text;
+            messageModal.classList.remove('hidden');
+            messageModal.classList.add('flex');
+        }
+
+        function closeModal() {
+            messageModal.classList.add('hidden');
+            messageModal.classList.remove('flex');
+        }
+
+
+        // Inisialisasi: Tampilkan Beranda dan render kuis pertama kali
+        window.onload = function() {
+            showPage('home');
+            renderQuiz();
+        };
+
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Jaringan Komputer dan Internet</title>
+    <!-- Memuat Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Menggunakan font Inter sebagai standar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Latar belakang abu-abu terang */
+        }
+        /* Style untuk transisi halaman yang lebih mulus */
+        .page {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .page.hidden {
+            display: none;
+            opacity: 0;
+        }
+        .page:not(.hidden) {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // Konfigurasi Tailwind untuk tema biru
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1D4ED8', /* Tailwind blue-700 */
+                        'secondary-blue': '#3B82F6', /* Tailwind blue-500 */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header dan Navigasi -->
+    <header class="bg-primary-blue shadow-lg fixed w-full z-10">
+ 
